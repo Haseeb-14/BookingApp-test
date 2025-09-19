@@ -18,22 +18,27 @@ export const BookingCard = ({
     switch (color) {
       case 'lastMinute':
         return {
-          backgroundColor: theme.colors.lastMinute,
+          backgroundColor: '#E93E7F', // Pink color from image
         };
       case 'preferred':
         return {
-          backgroundColor: theme.colors.preferred,
+          backgroundColor: '#4A8CD7', // Blue color from image
         };
       case 'category':
         return {
-          backgroundColor: theme.colors.category,
+          backgroundColor: '#333333', // Dark gray color from image
         };
       default:
         return {
-          backgroundColor: theme.colors.category,
+          backgroundColor: '#333333',
         };
     }
   };
+
+  // Separate tags by type for layout
+  const lastMinuteTag = tags.find(tag => tag.color === 'lastMinute');
+  const preferredTag = tags.find(tag => tag.color === 'preferred');
+  const categoryTags = tags.filter(tag => tag.color === 'category');
 
   return (
     <TouchableOpacity
@@ -41,35 +46,89 @@ export const BookingCard = ({
       style={[
         theme.globalStyles.card,
         {
-          marginBottom: 16,
-          padding: 16,
+          marginBottom: theme.spacing['16'],
+          padding: theme.spacing['16'],
         }
       ]}
     >
-      {/* Tags row */}
-      <View style={[theme.globalStyles.directionRow, theme.globalStyles.flexWrap, theme.globalStyles.gap8, { marginBottom: 12 }]}>
-        {tags.map((tag, index) => (
+      {/* Tags section */}
+      <View style={[theme.globalStyles.directionColumn, { marginBottom: theme.spacing['12'] }]}>
+        {/* LAST MINUTE - Full width */}
+        {lastMinuteTag && (
           <View
-            key={index}
             style={[
               theme.globalStyles.horizontalCenter,
               {
-                paddingHorizontal: 12,
-                paddingVertical: 4,
-                borderRadius: 12,
-                ...getTagStyle(tag.color),
+                paddingHorizontal: theme.spacing['16'],
+                paddingVertical: theme.spacing['4'],
+                borderRadius: theme.borderRadius['20'],
+                marginBottom: theme.spacing['6'],
+                ...theme.globalStyles.widthFull,
+                ...getTagStyle(lastMinuteTag.color),
               }
             ]}
           >
-            <Text style={[theme.textVariants.body10Medium, theme.textVariants.whiteText]}>
-              {tag.label}
+            <Text style={[theme.textVariants.body10Semi, theme.textVariants.whiteText]}>
+              {lastMinuteTag.label.toUpperCase()}
             </Text>
           </View>
-        ))}
+        )}
+
+        {/* PREFERRED - Full width */}
+        {preferredTag && (
+          <View
+            style={[
+              theme.globalStyles.horizontalCenter,
+              {
+                paddingHorizontal: theme.spacing['16'],
+                paddingVertical: theme.spacing['4'],
+                borderRadius: theme.borderRadius['20'],
+                marginBottom: theme.spacing['6'],
+                ...theme.globalStyles.widthFull,
+                ...getTagStyle(preferredTag.color),
+              }
+            ]}
+          >
+            <Text style={[theme.textVariants.body10Semi, theme.textVariants.whiteText]}>
+              {preferredTag.label.toUpperCase()}
+            </Text>
+          </View>
+        )}
+
+        {/* Category tags - Different layout based on count */}
+        {categoryTags.length > 0 && (
+          <View style={[
+            theme.globalStyles.directionRow, 
+            categoryTags.length === 1 
+              ? theme.globalStyles.justifyEnd 
+              : { gap: theme.spacing['8'] }
+          ]}>
+            {categoryTags.map((tag, index) => (
+              <View
+                key={index}
+                style={[
+                  theme.globalStyles.horizontalCenter,
+                  {
+                    paddingHorizontal: theme.spacing['16'],
+                    paddingVertical: theme.spacing['4'],
+                    borderRadius: theme.borderRadius['20'],
+                    // Only apply flex: 1 if there are multiple category tags
+                    ...(categoryTags.length > 1 && { flex: 1 }),
+                    ...getTagStyle(tag.color),
+                  }
+                ]}
+              >
+                <Text style={[theme.textVariants.body10Semi, theme.textVariants.whiteText]}>
+                  {tag.label.toUpperCase()}
+                </Text>
+              </View>
+            ))}
+          </View>
+        )}
       </View>
 
       {/* Date, time and price row */}
-      <View style={[theme.globalStyles.directionRow, theme.globalStyles.justifyBetween, theme.globalStyles.alignCenter, { marginBottom: 8 }]}>
+      <View style={[theme.globalStyles.directionRow, theme.globalStyles.justifyBetween, theme.globalStyles.alignCenter, { marginBottom: theme.spacing['8'] }]}>
         <Text style={[theme.textVariants.body16Medium, theme.textVariants.text]}>
           {date}, {time} ({day})
         </Text>
