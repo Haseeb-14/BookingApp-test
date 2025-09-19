@@ -1,0 +1,12 @@
+<svg width="25" height="25" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Capsule rotated 135° -->
+  <g transform="rotate(135 50 50)" stroke="" stroke-width="3" fill="none">
+    <rect x="25" y="35" width="50" height="30" rx="15" />
+  </g>
+
+  <!-- Diagonal line (rotated 90° from previous) -->
+  <line 
+    x1="60.61" y1="60.61"
+    x2="39.39" y2="39.39"
+    stroke="" stroke-width="3" />
+</svg>
