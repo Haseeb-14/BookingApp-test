@@ -1,7 +1,8 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, Alert } from 'react-native';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Button,
   CheckBox,
@@ -13,8 +14,13 @@ import {
 } from '@components/common';
 import { theme } from '@styles';
 import { TLoginFormValues } from '@types';
+import { loginStart, loginSuccess, loginFailure } from '@stores/slices/auth';
+import { RootState } from '@stores';
 
 export const LoginScreen = () => {
+  const dispatch = useDispatch();
+  const { loading, error } = useSelector((state: RootState) => state.auth);
+
   const formik = useFormik<TLoginFormValues>({
     initialValues: {
       email: '',
@@ -25,8 +31,35 @@ export const LoginScreen = () => {
       email: Yup.string().email('Invalid email address').required('Required'),
       password: Yup.string().required('Required'),
     }),
-    onSubmit: async () => {},
+    onSubmit: async (values) => {
+      try {
+        dispatch(loginStart());
+        
+        // Simulate a simple login validation using state
+        // In a real app, you might validate against stored credentials
+        if (values.email && values.password) {
+          // Mock successful login
+          const mockUser = {
+            email: values.email,
+          };
+          const mockToken = 'mock-jwt-token-' + Date.now();
+          
+          dispatch(loginSuccess({ user: mockUser, token: mockToken }));
+        } else {
+          dispatch(loginFailure('Please enter valid credentials'));
+        }
+      } catch (err) {
+        dispatch(loginFailure('Login failed. Please try again.'));
+      }
+    },
   });
+
+  // Show error if any
+  React.useEffect(() => {
+    if (error) {
+      Alert.alert('Login Error', error);
+    }
+  }, [error]);
 
   return (
     <Container safe keyboardAvoid>
@@ -69,8 +102,8 @@ export const LoginScreen = () => {
         </View>
         <Space space={42} />
         <Button
-          text="Log in"
-          disabled={!formik.isValid}
+          text={loading ? "Logging in..." : "Log in"}
+          disabled={!formik.isValid || loading}
           onPress={formik.handleSubmit}
         />
       </ScrollView>

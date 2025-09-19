@@ -1,10 +1,14 @@
-import React from 'react';
-import { Container, Text } from '@components/common';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-export const ProfileScreen = () => {
+const profile = () => {
   return (
-    <Container safe>
-      <Text>Profile</Text>
-    </Container>
-  );
-};
+    <View>
+      <Text>profile</Text>
+    </View>
+  )
+}
+
+export default profile
+
+const styles = StyleSheet.create({})
