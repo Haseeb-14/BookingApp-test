@@ -11,9 +11,9 @@ export const OnboardingCompleteScreen = () => {
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate(ERoutes.MAIN, {
-        screen: ERoutes.TODAY_STACK,
+        screen: ERoutes.AVAILABLE_STACK,
         params: {
-          screen: ERoutes.TODAY,
+          screen: ERoutes.AVAILABLE,
         },
       });
     }, 2000);

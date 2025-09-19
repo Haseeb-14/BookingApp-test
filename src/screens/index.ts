@@ -1,5 +1,5 @@
 export * from './welcome';
 export * from './login';
-export * from './today';
-export * from './calendar';
+export * from './available';
+export * from './bookings';
 export * from './profile';

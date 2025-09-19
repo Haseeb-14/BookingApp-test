@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Text } from '@components/common';
 
-export const CalendarScreen = () => {
+export const BookingsScreen = () => {
   return (
     <Container safe>
-      <Text>Calendar</Text>
+      <Text>My Bookings</Text>
     </Container>
   );
 };

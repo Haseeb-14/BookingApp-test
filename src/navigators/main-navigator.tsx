@@ -2,8 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { icons as Icons, theme } from '@styles';
 import { MainBottomNavigationParamList, ERoutes } from '@types';
-import { TodayNavigator } from './today-navigator';
-import { CalendarNavigator } from './calendar-navigator';
+import { AvailableNavigator } from './available-navigator';
+import { BookingsNavigator } from './bookings-navigator';
 import { ProfileNavigator } from './profile-navigator';
 
 const MainTab = createBottomTabNavigator<MainBottomNavigationParamList>();
@@ -11,7 +11,7 @@ const MainTab = createBottomTabNavigator<MainBottomNavigationParamList>();
 export const MainNavigator = () => {
   return (
     <MainTab.Navigator
-      initialRouteName={ERoutes.TODAY_STACK}
+      initialRouteName={ERoutes.AVAILABLE_STACK}
       screenOptions={{
         headerShown: false,
         tabBarLabelStyle: [theme.textVariants.body10],
@@ -20,19 +20,19 @@ export const MainNavigator = () => {
       }}
     >
       <MainTab.Screen
-        name={ERoutes.TODAY_STACK}
-        component={TodayNavigator}
+        name={ERoutes.AVAILABLE_STACK}
+        component={AvailableNavigator}
         options={{
-          tabBarIcon: TodayIcon,
-          tabBarLabel: 'Today',
+          tabBarIcon: AvailableIcon,
+          tabBarLabel: 'Available',
         }}
       />
       <MainTab.Screen
-        name={ERoutes.CALENDAR_STACK}
-        component={CalendarNavigator}
+        name={ERoutes.BOOKINGS_STACK}
+        component={BookingsNavigator}
         options={{
-          tabBarIcon: CalendarIcon,
-          tabBarLabel: 'Calendar',
+          tabBarIcon: BookingsIcon,
+          tabBarLabel: 'My bookings',
         }}
       />
       <MainTab.Screen
@@ -47,7 +47,7 @@ export const MainNavigator = () => {
   );
 };
 
-const TodayIcon = ({ focused }: { focused: boolean }) => {
+const AvailableIcon = ({ focused }: { focused: boolean }) => {
   return (
     <Icons.BottomTabTodayIcon
       stroke={focused ? theme.colors.primary : theme.colors.text}
@@ -55,7 +55,7 @@ const TodayIcon = ({ focused }: { focused: boolean }) => {
   );
 };
 
-const CalendarIcon = ({ focused }: { focused: boolean }) => {
+const BookingsIcon = ({ focused }: { focused: boolean }) => {
   return (
     <Icons.BottomTabCalendarIcon
       stroke={focused ? theme.colors.primary : theme.colors.text}
