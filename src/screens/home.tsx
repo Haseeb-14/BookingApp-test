@@ -82,8 +82,10 @@ export const HomeScreen = () => {
       />
       
       <ScrollView
+        style={[theme.globalStyles.flex1]}
         contentContainerStyle={[
           theme.globalStyles.padding36H,
+          { paddingTop: 8, paddingBottom: 32 }
         ]}
         showsVerticalScrollIndicator={false}
       >

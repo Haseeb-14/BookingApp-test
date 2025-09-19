@@ -12,7 +12,7 @@ export const Header = ({
   onCalendarPress,
 }: THeaderProps) => {
   return (
-    <Container style={[theme.globalStyles.paddingHeaderComponent]}>
+    <View style={[theme.globalStyles.paddingHeaderComponent]}>
       <View style={[theme.globalStyles.directionRow, theme.globalStyles.justifyBetween, theme.globalStyles.alignCenter]}>
         <Text style={[theme.textVariants.h20Bold, theme.textVariants.text]}>
           {title}
@@ -84,6 +84,6 @@ export const Header = ({
           </TouchableOpacity>
         ))}
       </View>
-    </Container>
+    </View>
   );
 };
