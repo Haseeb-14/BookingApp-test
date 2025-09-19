@@ -21,6 +21,7 @@ export enum ERoutes {
   PROFILE_STACK = 'PROFILE_STACK',
 
   AVAILABLE = 'AVAILABLE',
+  BOOKING_DETAIL = 'BOOKING_DETAIL',
 
   BOOKINGS = 'BOOKINGS',
 
@@ -45,6 +46,20 @@ export type AuthNavigationParamList = {
 
 export type AvailableNavigationParamList = {
   [ERoutes.AVAILABLE]: undefined;
+  [ERoutes.BOOKING_DETAIL]: { 
+    bookingId: string;
+    bookingData: {
+      currentTime: string;
+      dateTime: string;
+      countdown: string;
+      bookingNumber: string;
+      status: string;
+      statusType: 'open' | 'lastminute' | 'last_minute' | 'preferred' | 'online';
+      rideType: string;
+      passengers: number;
+      luggage: number;
+    };
+  };
 };
 
 export type BookingsNavigationParamList = {

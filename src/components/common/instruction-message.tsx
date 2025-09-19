@@ -1,0 +1,29 @@
+import React from 'react';
+import { View } from 'react-native';
+import { Text } from './text';
+import { theme } from '@styles/theme';
+
+type TInstructionMessageProps = {
+  message: string;
+  backgroundColor?: string;
+  textColor?: string;
+};
+
+export const InstructionMessage = ({ 
+  message, 
+  backgroundColor = '#E8F5E8', 
+  textColor = theme.colors.primary 
+}: TInstructionMessageProps) => {
+  return (
+    <View style={{
+      backgroundColor,
+      padding: theme.spacing['16'],
+      borderRadius: theme.borderRadius['12'],
+      marginBottom: theme.spacing['24']
+    }}>
+      <Text style={[theme.textVariants.body14, { color: textColor }]}>
+        {message}
+      </Text>
+    </View>
+  );
+};

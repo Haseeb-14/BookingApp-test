@@ -7,9 +7,20 @@ export type TFilterButton = {
 
 export type THeaderProps = {
   title: string;
-  filterButtons: TFilterButton[];
+  filterButtons?: TFilterButton[];
   onFilterPress?: () => void;
   onCalendarPress?: () => void;
+  onBackPress?: () => void;
+  showBackButton?: boolean;
+  showActionButtons?: boolean;
+  // New props for booking detail layout
+  currentTime?: string;
+  dateTime?: string;
+  countdown?: string;
+  bookingNumber?: string;
+  status?: string;
+  statusType?: 'open' | 'lastminute' | 'last_minute' | 'preferred' | 'online';
+  showBookingDetailLayout?: boolean;
 };
 
 // BookingCard component types

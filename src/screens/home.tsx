@@ -3,8 +3,11 @@ import { ScrollView, View } from 'react-native';
 import { Container, Header, BookingCard } from '@components/common';
 import { theme } from '@styles/theme';
 import { TFilterType, TBooking } from '@types';
+import { useAvailableNavigation } from '@hooks/useTypedNavigation';
+import { ERoutes } from '@types';
 
 export const HomeScreen = () => {
+  const navigation = useAvailableNavigation();
   const [activeFilter, setActiveFilter] = useState<TFilterType>('all');
 
   const filterButtons = [
@@ -104,7 +107,6 @@ export const HomeScreen = () => {
         { label: 'ONLINE', color: 'online' as const },
       ],
     },
-
   ];
 
   const handleFilterPress = () => {
@@ -117,9 +119,44 @@ export const HomeScreen = () => {
     console.log('Calendar pressed');
   };
 
-  const handleBookingPress = (bookingId: string) => {
-    // Handle booking card press
-    console.log('Booking pressed:', bookingId);
+  const handleBookingPress = (booking: TBooking) => {
+    // Determine status and status type based on booking tags
+    const hasLastMinute = booking.tags.some(tag => tag.color === 'lastMinute');
+    const hasPreferred = booking.tags.some(tag => tag.color === 'preferred');
+    const hasOnline = booking.tags.some(tag => tag.color === 'online');
+
+    let status = 'OPEN';
+    let statusType: 'open' | 'lastminute' | 'last_minute' | 'preferred' | 'online' = 'open';
+
+    if (hasLastMinute) {
+      status = 'LAST MINUTE';
+      statusType = 'lastminute';
+    } else if (hasPreferred) {
+      status = 'PREFERRED';
+      statusType = 'preferred';
+    } else if (hasOnline) {
+      status = 'ONLINE';
+      statusType = 'online';
+    }
+
+    // Create booking data for detail screen
+    const bookingData = {
+      currentTime: "12:30",
+      dateTime: `${booking.date}, ${booking.time}`,
+      countdown: "in 3h 40 min", // This could be calculated dynamically
+      bookingNumber: `booking ${booking.id}${booking.id}${booking.id}${booking.id}${booking.id}${booking.id}`,
+      status,
+      statusType,
+      rideType: "GPU Ride",
+      passengers: 3,
+      luggage: 3,
+    };
+
+    // Navigate to booking detail screen with booking data
+    navigation.navigate(ERoutes.BOOKING_DETAIL, { 
+      bookingId: booking.id,
+      bookingData 
+    });
   };
 
   return (
@@ -150,7 +187,7 @@ export const HomeScreen = () => {
               fromAddress={booking.fromAddress}
               toAddress={booking.toAddress}
               tags={booking.tags}
-              onPress={() => handleBookingPress(booking.id)}
+              onPress={() => handleBookingPress(booking)}
             />
           ))}
         </View>

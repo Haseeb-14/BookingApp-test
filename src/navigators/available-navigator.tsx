@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { AvailableScreen } from '@screens';
+import { AvailableScreen, BookingDetailScreen } from '@screens';
 import { AvailableNavigationParamList, ERoutes } from '@types';
 
 const AvailableStack = createStackNavigator<AvailableNavigationParamList>();
@@ -12,6 +12,7 @@ export const AvailableNavigator = () => {
       screenOptions={{ headerShown: false }}
     >
       <AvailableStack.Screen name={ERoutes.AVAILABLE} component={AvailableScreen} />
+      <AvailableStack.Screen name={ERoutes.BOOKING_DETAIL} component={BookingDetailScreen} />
     </AvailableStack.Navigator>
   );
 };

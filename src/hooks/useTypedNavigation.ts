@@ -5,8 +5,8 @@ import {
   RootNavigationParamList,
   AuthNavigationParamList,
   MainBottomNavigationParamList,
-  TodayNavigationParamList,
-  CalendarNavigationParamList,
+  AvailableNavigationParamList,
+  BookingsNavigationParamList,
   MedicationNavigationParamList,
   ProfileNavigationParamList,
 } from '@types';
@@ -20,14 +20,17 @@ export const useAuthNavigation = () =>
 export const useMainNavigation = () =>
   useNavigation<BottomTabNavigationProp<MainBottomNavigationParamList>>();
 
-export const useTodayNavigation = () =>
-  useNavigation<NativeStackNavigationProp<TodayNavigationParamList>>();
+export const useAvailableNavigation = () =>
+  useNavigation<NativeStackNavigationProp<AvailableNavigationParamList>>();
 
-export const useCalendarNavigation = () =>
-  useNavigation<NativeStackNavigationProp<CalendarNavigationParamList>>();
+export const useBookingsNavigation = () =>
+  useNavigation<NativeStackNavigationProp<BookingsNavigationParamList>>();
 
 export const useMedicationNavigation = () =>
   useNavigation<NativeStackNavigationProp<MedicationNavigationParamList>>();
 
 export const useProfileNavigation = () =>
   useNavigation<NativeStackNavigationProp<ProfileNavigationParamList>>();
+
+// Default export for backward compatibility
+export const useTypedNavigation = useAvailableNavigation;
