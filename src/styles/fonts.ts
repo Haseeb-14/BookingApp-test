@@ -1,7 +1,18 @@
-export const fontFamilies = {
-  300: 'Poppins-Light',
-  400: 'Poppins-Regular',
-  500: 'Poppins-Medium',
-  600: 'Poppins-SemiBold',
-  700: 'Poppins-Bold',
+
+
+export const sfProDisplayFamilies = {
+  100: 'SFPRODISPLAYULTRALIGHTITALIC',
+  200: 'SFPRODISPLAYTHINITALIC',
+  300: 'SFPRODISPLAYLIGHTITALIC',
+  400: 'SFPRODISPLAYREGULAR',
+  500: 'SFPRODISPLAYMEDIUM',
+  600: 'SFPRODISPLAYSEMIBOLDITALIC',
+  700: 'SFPRODISPLAYBOLD',
+  800: 'SFPRODISPLAYHEAVYITALIC',
+  900: 'SFPRODISPLAYBLACKITALIC',
+};
+
+// Combined font families for easy access
+export const allFontFamilies = {
+  ...sfProDisplayFamilies,
 };
