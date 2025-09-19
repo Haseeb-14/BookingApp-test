@@ -343,6 +343,9 @@ export const theme = {
     dangerText: {
       color: colors.danger,
     } as TextStyle,
+    inactiveText: {
+      color: colors.inactiveText,
+    } as TextStyle,
     centerText: {
       textAlign: 'center',
     } as TextStyle,
