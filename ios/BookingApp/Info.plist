@@ -50,6 +50,16 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>UIAppFonts</key>
-	<array/>
+	<array>
+		<string>SFPRODISPLAYBLACKITALIC.OTF</string>
+		<string>SFPRODISPLAYBOLD.OTF</string>
+		<string>SFPRODISPLAYHEAVYITALIC.OTF</string>
+		<string>SFPRODISPLAYLIGHTITALIC.OTF</string>
+		<string>SFPRODISPLAYMEDIUM.OTF</string>
+		<string>SFPRODISPLAYREGULAR.OTF</string>
+		<string>SFPRODISPLAYSEMIBOLDITALIC.OTF</string>
+		<string>SFPRODISPLAYTHINITALIC.OTF</string>
+		<string>SFPRODISPLAYULTRALIGHTITALIC.OTF</string>
+	</array>
 </dict>
 </plist>
