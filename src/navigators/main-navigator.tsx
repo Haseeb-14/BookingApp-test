@@ -4,8 +4,6 @@ import { icons as Icons, theme } from '@styles';
 import { MainBottomNavigationParamList, ERoutes } from '@types';
 import { TodayNavigator } from './today-navigator';
 import { CalendarNavigator } from './calendar-navigator';
-import { MedicationNavigator } from './medication-navigator';
-import { ScheduleNavigator } from './schedule-navigator';
 import { ProfileNavigator } from './profile-navigator';
 
 const MainTab = createBottomTabNavigator<MainBottomNavigationParamList>();
@@ -38,22 +36,6 @@ export const MainNavigator = () => {
         }}
       />
       <MainTab.Screen
-        name={ERoutes.MEDICATION_STACK}
-        component={MedicationNavigator}
-        options={{
-          tabBarIcon: MedicationIcon,
-          tabBarLabel: 'Medication',
-        }}
-      />
-      <MainTab.Screen
-        name={ERoutes.SCHEDULE_STACK}
-        component={ScheduleNavigator}
-        options={{
-          tabBarIcon: ScheduleIcon,
-          tabBarLabel: 'Schedule',
-        }}
-      />
-      <MainTab.Screen
         name={ERoutes.PROFILE_STACK}
         component={ProfileNavigator}
         options={{
@@ -76,24 +58,6 @@ const TodayIcon = ({ focused }: { focused: boolean }) => {
 const CalendarIcon = ({ focused }: { focused: boolean }) => {
   return (
     <Icons.BottomTabCalendarIcon
-      stroke={focused ? theme.colors.primary : theme.colors.text}
-    />
-  );
-};
-
-const MedicationIcon = ({ focused }: { focused: boolean }) => {
-  return (
-    <Icons.BottomTabMedicationIcon
-      stroke={focused ? theme.colors.primary : theme.colors.text}
-      width={48}
-      height={48}
-    />
-  );
-};
-
-const ScheduleIcon = ({ focused }: { focused: boolean }) => {
-  return (
-    <Icons.BottomTabScheduleIcon
       stroke={focused ? theme.colors.primary : theme.colors.text}
     />
   );

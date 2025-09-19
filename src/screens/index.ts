@@ -8,6 +8,4 @@ export * from './connect-pillbox';
 export * from './pair-device';
 export * from './today';
 export * from './calendar';
-export * from './medication';
-export * from './schedule';
 export * from './profile';

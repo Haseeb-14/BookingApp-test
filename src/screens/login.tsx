@@ -98,7 +98,6 @@ export const LoginScreen = () => {
               onChangeValue={value => formik.setFieldValue('rememberMe', value)}
             />
           </View>
-          <Text>Forgot password?</Text>
         </View>
         <Space space={42} />
         <Button
