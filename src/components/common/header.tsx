@@ -13,7 +13,6 @@ export const Header = ({
 }: THeaderProps) => {
   return (
     <Container style={[theme.globalStyles.paddingHeaderComponent]}>
-      {/* Top row with title and action buttons */}
       <View style={[theme.globalStyles.directionRow, theme.globalStyles.justifyBetween, theme.globalStyles.alignCenter]}>
         <Text style={[theme.textVariants.h20Bold, theme.textVariants.text]}>
           {title}
