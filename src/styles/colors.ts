@@ -70,7 +70,7 @@ export const colors: TColors = {
   // UI colors
   border: '#E0E0E0', // Light gray for inactive buttons
   muted: '#B6B6B6',
-  inactive: '#E0E0E0', // Light gray for inactive filter buttons
+  inactive: '#F6F6FB', // Light gray for inactive filter buttons
   inactiveText: '#616161', // Dark gray for inactive button text
   
   // Accent colors

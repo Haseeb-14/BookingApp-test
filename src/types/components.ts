@@ -15,7 +15,7 @@ export type THeaderProps = {
 // BookingCard component types
 export type TTag = {
   label: string;
-  color: 'lastMinute' | 'preferred' | 'category';
+  color: 'lastMinute' | 'preferred' | 'category' | 'online';
 };
 
 export type TBookingCardProps = {

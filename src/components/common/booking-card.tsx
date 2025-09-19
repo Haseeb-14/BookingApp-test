@@ -28,6 +28,10 @@ export const BookingCard = ({
         return {
           backgroundColor: '#333333', // Dark gray color from image
         };
+      case 'online':
+        return {
+          backgroundColor: '#4CAF50', // Green color for online tags
+        };
       default:
         return {
           backgroundColor: '#333333',
@@ -38,6 +42,7 @@ export const BookingCard = ({
   // Separate tags by type for layout
   const lastMinuteTag = tags.find(tag => tag.color === 'lastMinute');
   const preferredTag = tags.find(tag => tag.color === 'preferred');
+  const onlineTag = tags.find(tag => tag.color === 'online');
   const categoryTags = tags.filter(tag => tag.color === 'category');
 
   return (
@@ -91,6 +96,27 @@ export const BookingCard = ({
           >
             <Text style={[theme.textVariants.body10Semi, theme.textVariants.whiteText]}>
               {preferredTag.label.toUpperCase()}
+            </Text>
+          </View>
+        )}
+
+        {/* ONLINE - Full width */}
+        {onlineTag && (
+          <View
+            style={[
+              theme.globalStyles.horizontalCenter,
+              {
+                paddingHorizontal: theme.spacing['16'],
+                paddingVertical: theme.spacing['4'],
+                borderRadius: theme.borderRadius['20'],
+                marginBottom: theme.spacing['6'],
+                ...theme.globalStyles.widthFull,
+                ...getTagStyle(onlineTag.color),
+              }
+            ]}
+          >
+            <Text style={[theme.textVariants.body10Semi, theme.textVariants.whiteText]}>
+              {onlineTag.label.toUpperCase()}
             </Text>
           </View>
         )}

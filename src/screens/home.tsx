@@ -55,6 +55,56 @@ export const HomeScreen = () => {
         { label: 'AIRPORT', color: 'category' as const },
       ],
     },
+    {
+      id: '3',
+      date: '15 Apr',
+      time: '8:30 AM',
+      day: 'Tue',
+      price: '$45.50',
+      fromAddress: 'Circular Quay, Sydney',
+      toAddress: 'Bondi Beach, NSW',
+      tags: [
+        { label: 'PREFERRED', color: 'preferred' as const },
+        { label: 'LATE NIGHT', color: 'category' as const },
+      ],
+    },
+    {
+      id: '4',
+      date: '15 Apr',
+      time: '6:15 PM',
+      day: 'Tue',
+      price: '$28.75',
+      fromAddress: 'Central Station, Sydney',
+      toAddress: 'Parramatta, NSW',
+      tags: [
+        { label: 'ONLINE', color: 'online' as const },
+      ],
+    },
+    {
+      id: '5',
+      date: '16 Apr',
+      time: '11:45 AM',
+      day: 'Wed',
+      price: '$52.20',
+      fromAddress: 'Sydney Airport Terminal 1',
+      toAddress: 'Harbour Bridge, Sydney',
+      tags: [
+        { label: 'ONLINE', color: 'online' as const },
+      ],
+    },
+    {
+      id: '6',
+      date: '16 Apr',
+      time: '3:20 PM',
+      day: 'Wed',
+      price: '$38.90',
+      fromAddress: 'Darling Harbour, Sydney',
+      toAddress: 'Manly Beach, NSW',
+      tags: [
+        { label: 'ONLINE', color: 'online' as const },
+      ],
+    },
+
   ];
 
   const handleFilterPress = () => {
