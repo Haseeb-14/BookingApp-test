@@ -150,6 +150,7 @@ export const HomeScreen = () => {
       rideType: "GPU Ride",
       passengers: 3,
       luggage: 3,
+      price: booking.price, // Add the price from the booking
     };
 
     // Navigate to booking detail screen with booking data

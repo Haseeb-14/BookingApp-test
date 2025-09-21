@@ -21,6 +21,7 @@ export type THeaderProps = {
   status?: string;
   statusType?: 'open' | 'lastminute' | 'last_minute' | 'preferred' | 'online';
   showBookingDetailLayout?: boolean;
+  price?: string; // Add price prop
 };
 
 // BookingCard component types

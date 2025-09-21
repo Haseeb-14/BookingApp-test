@@ -30,6 +30,7 @@ export const BookingDetailScreen = () => {
       rideType: string;
       passengers: number;
       luggage: number;
+      price: string; // Add price to the type
     };
   };
 
@@ -130,6 +131,7 @@ export const BookingDetailScreen = () => {
         onBackPress={handleBackPress}
         showBackButton={true}
         showActionButtons={false}
+        price={bookingData.price} // Pass the price to header
       />
       
       <ScrollView

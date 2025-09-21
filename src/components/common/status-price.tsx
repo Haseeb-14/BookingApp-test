@@ -23,7 +23,7 @@ export const StatusPrice = ({ status, price, priceLabel = 'Price' }: TStatusPric
         </Text>
       </View>
       <View style={[theme.globalStyles.directionColumn, theme.globalStyles.alignEnd]}>
-        <Text style={[theme.textVariants.body20Bold, theme.textVariants.text]}>
+        <Text style={[ theme.textVariants.text]}>
           {price}
         </Text>
         <Text style={[theme.textVariants.body14, theme.textVariants.lightText]}>

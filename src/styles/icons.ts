@@ -3,6 +3,8 @@ import EyeOffIcon from '@assets/icons/eye-off.svg';
 
 import SearchIcon from '@assets/icons/search.svg';
 import CalendarIcon from '@assets/icons/calendar.svg';
+import PassengerIcon from '@assets/icons/passenger.svg';
+import BagIcon from '@assets/icons/bag-icon.svg';
 
 import BottomTabTodayIcon from '@assets/icons/bottom-tab/today.svg';
 import BottomTabCalendarIcon from '@assets/icons/bottom-tab/calendar.svg';
@@ -15,6 +17,8 @@ export const icons = {
   EyeOffIcon,
   SearchIcon,
   CalendarIcon,
+  PassengerIcon,
+  BagIcon,
 
   BottomTabTodayIcon,
   BottomTabCalendarIcon,
