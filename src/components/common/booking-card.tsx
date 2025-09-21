@@ -73,8 +73,8 @@ export const BookingCard = ({
               }
             ]}
           >
-            <Text style={[theme.textVariants.body10Semi, theme.textVariants.whiteText]}>
-              {lastMinuteTag.label.toUpperCase()}
+            <Text style={[theme.textVariants.body12Bold, theme.textVariants.whiteText]}>
+            {lastMinuteTag.label.toUpperCase()}
             </Text>
           </View>
         )}
@@ -94,8 +94,8 @@ export const BookingCard = ({
               }
             ]}
           >
-            <Text style={[theme.textVariants.body10Semi, theme.textVariants.whiteText]}>
-              {preferredTag.label.toUpperCase()}
+            <Text style={[theme.textVariants.body12Bold, theme.textVariants.whiteText]}>
+            {preferredTag.label.toUpperCase()}
             </Text>
           </View>
         )}
@@ -115,8 +115,8 @@ export const BookingCard = ({
               }
             ]}
           >
-            <Text style={[theme.textVariants.body10Semi, theme.textVariants.whiteText]}>
-              {onlineTag.label.toUpperCase()}
+            <Text style={[theme.textVariants.body12Bold, theme.textVariants.whiteText]}>
+            {onlineTag.label.toUpperCase()}
             </Text>
           </View>
         )}
@@ -144,8 +144,8 @@ export const BookingCard = ({
                   }
                 ]}
               >
-                <Text style={[theme.textVariants.body10Semi, theme.textVariants.whiteText]}>
-                  {tag.label.toUpperCase()}
+            <Text style={[theme.textVariants.body10Bold, theme.textVariants.whiteText]}>
+            {tag.label.toUpperCase()}
                 </Text>
               </View>
             ))}

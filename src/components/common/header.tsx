@@ -120,7 +120,6 @@ export const Header = ({
           <View
             style={[
               {
-                paddingHorizontal: theme.spacing["16"],
                 borderRadius: theme.borderRadius["12"],
                 ...theme.globalStyles.horizontalCenter,
                 ...theme.globalStyles.widthFull,
@@ -129,7 +128,7 @@ export const Header = ({
               getStatusButtonStyle(statusType),
             ]}
           >
-            <Text style={[theme.textVariants.body16Bold, { color: "white" }]}>
+            <Text style={[theme.textVariants.body14Bold, theme.textVariants.whiteText]}>
               {status.toUpperCase()}
             </Text>
           </View>

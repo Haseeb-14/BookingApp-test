@@ -95,6 +95,7 @@ export const BookingDetailScreen = () => {
       label: 'Babyseat (x2)',
       value: '4, 6 years',
       checked: checkedItems.babyseat || false,
+      hasIcon: true, // Add this line to enable the icon
     },
     {
       key: 'customer',
