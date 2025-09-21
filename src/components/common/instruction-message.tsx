@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Text } from './text';
 import { theme } from '@styles/theme';
-import { TInstructionMessageProps } from '@types/components';
+import { TInstructionMessageProps } from '@types';
 
 export const InstructionMessage = ({ 
   message, 
