@@ -54,3 +54,10 @@ export type TBooking = {
   toAddress: string;
   tags: TTag[];
 };
+
+// InstructionMessage component types
+export type TInstructionMessageProps = {
+  message: string;
+  backgroundColor?: string;
+  textColor?: string;
+};

@@ -2,12 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Text } from './text';
 import { theme } from '@styles/theme';
-
-type TInstructionMessageProps = {
-  message: string;
-  backgroundColor?: string;
-  textColor?: string;
-};
+import { TInstructionMessageProps } from '@types/components';
 
 export const InstructionMessage = ({ 
   message, 
@@ -21,7 +16,7 @@ export const InstructionMessage = ({
       borderRadius: theme.borderRadius['12'],
       marginBottom: theme.spacing['24']
     }}>
-      <Text style={[theme.textVariants.body14, { color: textColor }]}>
+      <Text style={[theme.textVariants.body16Bold]}>
         {message}
       </Text>
     </View>
