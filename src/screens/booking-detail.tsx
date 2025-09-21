@@ -53,7 +53,8 @@ export const BookingDetailScreen = () => {
   };
 
   const handleSignboardPress = () => {
-    // Handle signboard PDF
+    // Mark signboard as checked when PDF is accessed
+    handleCheckboxChange('signboard', true);
     console.log('Open signboard PDF');
   };
 
@@ -113,7 +114,7 @@ export const BookingDetailScreen = () => {
       key: 'signboard',
       label: 'Signboard',
       value: 'Filename.pdf',
-      checked: false,
+      checked: checkedItems.signboard || false,
       isLink: true,
       isPdf: true, // Add this line to show share icon for PDF
       onLinkPress: handleSignboardPress,

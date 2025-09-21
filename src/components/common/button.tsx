@@ -20,6 +20,10 @@ type TButton = {
   textUnderline?: boolean;
   style?: ViewStyle | ViewStyle[];
   textStyle?: TextStyle | TextStyle[];
+  // Color props
+  backgroundColor?: string;
+  textColor?: string;
+  borderColor?: string;
 };
 
 export const Button = ({
@@ -31,31 +35,35 @@ export const Button = ({
   text,
   style,
   textStyle: customTextStyle,
+  backgroundColor,
+  textColor: customTextColor,
+  borderColor,
 }: TButton) => {
   let containerStyle: ViewStyle = {};
   let textStyle: TextStyle = {};
   let textColor: string = '';
+  
   if (variant === 'outlined') {
     containerStyle = {
       borderWidth: 1,
-      borderColor: disabled ? theme.colors.muted : theme.colors.primary,
-      backgroundColor: theme.colors.white,
+      borderColor: borderColor || (disabled ? theme.colors.muted : theme.colors.primary),
+      backgroundColor: backgroundColor || theme.colors.white,
       height: theme.spacing.base * 14,
       borderRadius: theme.spacing[10],
     };
     textStyle = theme.textVariants.body16Semi;
-    textColor = disabled ? theme.colors.muted : theme.colors.text;
+    textColor = customTextColor || (disabled ? theme.colors.muted : theme.colors.text);
   } else if (variant === 'filled') {
     containerStyle = {
-      backgroundColor: disabled ? theme.colors.muted : theme.colors.primary,
+      backgroundColor: backgroundColor || (disabled ? theme.colors.muted : theme.colors.primary),
       height: theme.spacing.base * 14,
       borderRadius: theme.spacing[10],
     };
-    textStyle = textStyle = theme.textVariants.body16Semi;
-    textColor = theme.colors.white;
+    textStyle = theme.textVariants.body16Semi;
+    textColor = customTextColor || theme.colors.white;
   } else if (variant === 'text') {
     containerStyle = { height: 'auto' };
-    textColor = disabled ? theme.colors.muted : theme.colors.primary;
+    textColor = customTextColor || (disabled ? theme.colors.muted : theme.colors.primary);
     textStyle = theme.textVariants.body16Semi;
   }
   textStyle = { ...textStyle, color: textColor };
@@ -66,7 +74,7 @@ export const Button = ({
         style={[theme.globalStyles.horizontalCenter, theme.globalStyles.gap8]}
       >
         {loading ? (
-          <ActivityIndicator color={theme.colors.white} size="small" />
+          <ActivityIndicator color={textColor} size="small" />
         ) : null}
         {Icon && <Icon stroke={textColor} fill={textColor} />}
         <Text

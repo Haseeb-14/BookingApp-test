@@ -6,8 +6,7 @@ import { TInstructionMessageProps } from '@types';
 
 export const InstructionMessage = ({ 
   message, 
-  backgroundColor = '#E8F5E8', 
-  textColor = theme.colors.primary 
+  backgroundColor = '#F0FAF6', 
 }: TInstructionMessageProps) => {
   return (
     <View style={{

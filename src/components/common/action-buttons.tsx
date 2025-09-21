@@ -11,6 +11,13 @@ type TActionButtonsProps = {
   primaryDisabled?: boolean;
   primaryVariant?: 'filled' | 'outlined' | 'text';
   secondaryVariant?: 'filled' | 'outlined' | 'text';
+  // Color props for buttons
+  primaryBackgroundColor?: string;
+  primaryTextColor?: string;
+  primaryBorderColor?: string;
+  secondaryBackgroundColor?: string;
+  secondaryTextColor?: string;
+  secondaryBorderColor?: string;
 };
 
 export const ActionButtons = ({ 
@@ -20,7 +27,13 @@ export const ActionButtons = ({
   onSecondaryPress,
   primaryDisabled = false,
   primaryVariant = 'filled',
-  secondaryVariant = 'outlined'
+  secondaryVariant = 'outlined',
+  primaryBackgroundColor = theme.colors.primary,
+  primaryTextColor = theme.colors.white,
+  primaryBorderColor,
+  secondaryBackgroundColor = theme.colors.buttonDark,
+  secondaryTextColor = theme.colors.white,
+  secondaryBorderColor,
 }: TActionButtonsProps) => {
   return (
     <View style={[theme.globalStyles.directionRow, theme.globalStyles.gap12, { padding: theme.spacing['16'] }]}>
@@ -29,6 +42,9 @@ export const ActionButtons = ({
         text={secondaryButtonText}
         onPress={onSecondaryPress}
         style={[theme.globalStyles.flex1]}
+        backgroundColor={secondaryBackgroundColor}
+        textColor={secondaryTextColor}
+        borderColor={secondaryBorderColor}
       />
       <Button
         variant={primaryVariant}
@@ -36,6 +52,9 @@ export const ActionButtons = ({
         onPress={onPrimaryPress}
         disabled={primaryDisabled}
         style={[theme.globalStyles.flex1]}
+        backgroundColor={primaryDisabled ? undefined : primaryBackgroundColor}
+        textColor={primaryTextColor}
+        borderColor={primaryBorderColor}
       />
     </View>
   );
