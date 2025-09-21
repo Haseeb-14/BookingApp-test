@@ -2,17 +2,8 @@ import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Text } from './text';
 import { theme } from '@styles/theme';
-
-type TBookingDetailItemProps = {
-  label: string;
-  value: string;
-  checked: boolean;
-  onCheckChange: (checked: boolean) => void;
-  isLink?: boolean;
-  onLinkPress?: () => void;
-  hasIcon?: boolean;
-  iconComponent?: React.ReactNode;
-};
+import { icons } from '@styles/icons';
+import { TBookingDetailItemProps } from '@types';
 
 export const BookingDetailItem = ({ 
   label, 
@@ -22,7 +13,8 @@ export const BookingDetailItem = ({
   isLink = false, 
   onLinkPress,
   hasIcon = false,
-  iconComponent
+  iconComponent,
+  isPdf = false
 }: TBookingDetailItemProps) => {
   const handlePress = () => {
     if (isLink && onLinkPress) {
@@ -59,7 +51,11 @@ export const BookingDetailItem = ({
         <View style={styles.rightContainer}>
           {isLink ? (
             <View style={styles.shareIcon}>
-              <Text style={styles.shareIconText}>⋯</Text>
+              {isPdf ? (
+                <icons.ShareIcon width={theme.spacing['20']} height={theme.spacing['20']} />
+              ) : (
+                <Text style={styles.shareIconText}>⋯</Text>
+              )}
             </View>
           ) : (
             <View style={[styles.checkbox, checked && styles.checkboxChecked]}>
@@ -74,7 +70,7 @@ export const BookingDetailItem = ({
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 16,
+    marginBottom: theme.spacing['16'],
   },
   contentContainer: {
     flexDirection: 'row',
@@ -83,48 +79,43 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1,
-    marginRight: 16,
+    marginRight: theme.spacing['16'],
   },
   labelContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 4,
+    marginBottom: theme.spacing['4'],
   },
   iconContainer: {
-    marginRight: 8,
+    marginRight: theme.spacing['8'],
   },
   label: {
     ...theme.textVariants.body14Bold,
     ...theme.textVariants.text,
-    fontSize: 14,
-    fontWeight: '600',
   },
   separator: {
     height: 1,
     backgroundColor: theme.colors.border,
-    marginTop: 8, // Add top margin instead of bottom
+    marginTop: theme.spacing['8'],
+    marginRight: -theme.spacing['20'], // Extend the line towards the right
   },
   value: {
     ...theme.textVariants.body14,
     ...theme.textVariants.lightText,
-    fontSize: 14,
-    lineHeight: 20,
   },
   linkValue: {
     ...theme.textVariants.body14,
     color: theme.colors.primary,
-    fontSize: 14,
-    lineHeight: 20,
   },
   rightContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    minWidth: 24,
-    height: 24,
+    minWidth: theme.spacing['24'],
+    height: theme.spacing['24'],
   },
   checkbox: {
-    width: 20,
-    height: 20,
+    width: theme.spacing['20'],
+    height: theme.spacing['20'],
     borderWidth: 1,
     borderColor: theme.colors.border,
     backgroundColor: theme.colors.white,
@@ -136,21 +127,21 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.primary,
   },
   checkmark: {
-    width: 6,
-    height: 10,
+    width: theme.spacing['6'],
+    height: theme.spacing['10'],
     borderBottomWidth: 2,
     borderRightWidth: 2,
     borderColor: theme.colors.white,
     transform: [{ rotate: '45deg' }],
   },
   shareIcon: {
-    width: 20,
-    height: 20,
+    width: theme.spacing['20'],
+    height: theme.spacing['20'],
     alignItems: 'center',
     justifyContent: 'center',
   },
   shareIconText: {
-    fontSize: 16,
+    fontSize: theme.spacing['16'],
     color: theme.colors.text,
     fontWeight: 'bold',
     transform: [{ rotate: '90deg' }],

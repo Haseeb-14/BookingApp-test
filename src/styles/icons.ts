@@ -6,6 +6,7 @@ import CalendarIcon from '@assets/icons/calendar.svg';
 import PassengerIcon from '@assets/icons/passenger.svg';
 import BagIcon from '@assets/icons/bag-icon.svg';
 import BabySeatIcon from '@assets/icons/baby-seat.svg';
+import ShareIcon from '@assets/icons/share.svg';
 
 import BottomTabTodayIcon from '@assets/icons/bottom-tab/today.svg';
 import BottomTabCalendarIcon from '@assets/icons/bottom-tab/calendar.svg';
@@ -21,6 +22,7 @@ export const icons = {
   PassengerIcon,
   BagIcon,
   BabySeatIcon,
+  ShareIcon,
 
   BottomTabTodayIcon,
   BottomTabCalendarIcon,

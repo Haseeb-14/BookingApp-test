@@ -115,6 +115,7 @@ export const BookingDetailScreen = () => {
       value: 'Filename.pdf',
       checked: false,
       isLink: true,
+      isPdf: true, // Add this line to show share icon for PDF
       onLinkPress: handleSignboardPress,
     },
   ];

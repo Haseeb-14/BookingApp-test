@@ -3,21 +3,7 @@ import { View } from 'react-native';
 import { BookingDetailItem } from './booking-detail-item';
 import { theme } from '@styles/theme';
 import { icons } from '@styles/icons';
-
-type TBookingDetail = {
-  key: string;
-  label: string;
-  value: string;
-  checked: boolean;
-  isLink?: boolean;
-  onLinkPress?: () => void;
-  hasIcon?: boolean;
-};
-
-type TBookingDetailsListProps = {
-  details: TBookingDetail[];
-  onCheckChange: (key: string, checked: boolean) => void;
-};
+import { TBookingDetailsListProps } from '@types';
 
 export const BookingDetailsList = ({ details, onCheckChange }: TBookingDetailsListProps) => {
   return (
@@ -33,6 +19,7 @@ export const BookingDetailsList = ({ details, onCheckChange }: TBookingDetailsLi
           onLinkPress={detail.onLinkPress}
           hasIcon={detail.hasIcon}
           iconComponent={detail.hasIcon ? <icons.BabySeatIcon width={16} height={16} /> : undefined}
+          isPdf={detail.isPdf} // Pass the isPdf prop
         />
       ))}
     </View>

@@ -61,3 +61,33 @@ export type TInstructionMessageProps = {
   backgroundColor?: string;
   textColor?: string;
 };
+
+// BookingDetailItem component types
+export type TBookingDetailItemProps = {
+  label: string;
+  value: string;
+  checked: boolean;
+  onCheckChange: (checked: boolean) => void;
+  isLink?: boolean;
+  onLinkPress?: () => void;
+  hasIcon?: boolean;
+  iconComponent?: React.ReactNode;
+  isPdf?: boolean;
+};
+
+// BookingDetailsList component types
+export type TBookingDetail = {
+  key: string;
+  label: string;
+  value: string;
+  checked: boolean;
+  isLink?: boolean;
+  onLinkPress?: () => void;
+  hasIcon?: boolean;
+  isPdf?: boolean;
+};
+
+export type TBookingDetailsListProps = {
+  details: TBookingDetail[];
+  onCheckChange: (key: string, checked: boolean) => void;
+};
