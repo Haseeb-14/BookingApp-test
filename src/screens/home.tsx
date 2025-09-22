@@ -109,6 +109,19 @@ export const HomeScreen = () => {
     },
   ];
 
+  // Filter bookings based on active filter
+  const getFilteredBookings = () => {
+    if (activeFilter === 'all') {
+      return sampleBookings;
+    }
+    
+    return sampleBookings.filter(booking => {
+      return booking.tags.some(tag => tag.color === activeFilter);
+    });
+  };
+
+  const filteredBookings = getFilteredBookings();
+
   const handleFilterPress = () => {
     // Handle filter button press
     console.log('Filter pressed');
@@ -178,7 +191,7 @@ export const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
       >
         <View style={[theme.globalStyles.directionColumn]}>
-          {sampleBookings.map((booking) => (
+          {filteredBookings.map((booking) => (
             <BookingCard
               key={booking.id}
               date={booking.date}

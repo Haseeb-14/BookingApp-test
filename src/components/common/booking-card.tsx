@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Text } from './text';
+import { InstructionMessage } from './instruction-message';
 import { theme } from '@styles/theme';
 import { TBookingCardProps, TTag } from '@types';
 
@@ -13,6 +14,8 @@ export const BookingCard = ({
   toAddress,
   tags,
   onPress,
+  showConfirmationMessage = false,
+  confirmationMessageColor = '#F5F5F5',
 }: TBookingCardProps) => {
   const getTagStyle = (color: TTag['color']) => {
     switch (color) {
@@ -44,6 +47,13 @@ export const BookingCard = ({
   const preferredTag = tags.find(tag => tag.color === 'preferred');
   const onlineTag = tags.find(tag => tag.color === 'online');
   const categoryTags = tags.filter(tag => tag.color === 'category');
+  
+  // Reorder category tags so EARLY MORNING appears on the right
+  const reorderedCategoryTags = [...categoryTags].sort((a, b) => {
+    if (a.label === 'EARLY MORNING') return 1;
+    if (b.label === 'EARLY MORNING') return -1;
+    return 0;
+  });
 
   return (
     <TouchableOpacity
@@ -121,17 +131,16 @@ export const BookingCard = ({
           </View>
         )}
 
-        {/* Category tags - Different layout based on count */}
-        {categoryTags.length > 0 && (
+        {/* Category tags - side by side below other tags */}
+        {reorderedCategoryTags.length > 0 && (
           <View style={[
             theme.globalStyles.directionRow, 
-            categoryTags.length === 1 
-              ? theme.globalStyles.justifyEnd 
-              : { gap: theme.spacing['8'] }
+            { gap: theme.spacing['8'] },
+            reorderedCategoryTags.length === 1 && { justifyContent: 'flex-end' }
           ]}>
-            {categoryTags.map((tag, index) => (
+            {reorderedCategoryTags.map((tag, tagIndex) => (
               <View
-                key={index}
+                key={tagIndex}
                 style={[
                   theme.globalStyles.horizontalCenter,
                   {
@@ -139,7 +148,7 @@ export const BookingCard = ({
                     paddingVertical: theme.spacing['4'],
                     borderRadius: theme.borderRadius['20'],
                     // Only apply flex: 1 if there are multiple category tags
-                    ...(categoryTags.length > 1 && { flex: 1 }),
+                    ...(reorderedCategoryTags.length > 1 && { flex: 1 }),
                     ...getTagStyle(tag.color),
                   }
                 ]}
@@ -164,7 +173,7 @@ export const BookingCard = ({
       </View>
 
       {/* Addresses */}
-      <View style={[theme.globalStyles.directionColumn, theme.globalStyles.gap4]}>
+      <View style={[theme.globalStyles.directionColumn, theme.globalStyles.gap4, { marginBottom: theme.spacing['12'] }]}>
         <Text style={[theme.textVariants.body14, theme.textVariants.lightText]}>
           From: {fromAddress}
         </Text>
@@ -172,6 +181,14 @@ export const BookingCard = ({
           To: {toAddress}
         </Text>
       </View>
+
+      {/* Confirmation message using InstructionMessage component */}
+      {showConfirmationMessage && (
+        <InstructionMessage 
+          message="Come back to confirm your booking anytime between: 10:00 PM - 1:00 AM"
+          backgroundColor={confirmationMessageColor}
+        />
+      )}
     </TouchableOpacity>
   );
 };

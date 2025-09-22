@@ -23,8 +23,8 @@ export const LoginScreen = () => {
 
   const formik = useFormik<TLoginFormValues>({
     initialValues: {
-      email: '',
-      password: '',
+      email: 'haseeb@gmail.com',
+      password: 'Test@123',
       rememberMe: false,
     },
     validationSchema: Yup.object({

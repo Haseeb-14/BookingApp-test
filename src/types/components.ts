@@ -39,6 +39,8 @@ export type TBookingCardProps = {
   toAddress: string;
   tags: TTag[];
   onPress?: () => void;
+  showConfirmationMessage?: boolean;
+  confirmationMessageColor?: string;
 };
 
 // HomeScreen types
