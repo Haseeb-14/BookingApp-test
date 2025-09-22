@@ -10,7 +10,6 @@ import ShareIcon from '@assets/icons/share.svg';
 
 import BottomTabTodayIcon from '@assets/icons/bottom-tab/today.svg';
 import BottomTabCalendarIcon from '@assets/icons/bottom-tab/calendar.svg';
-import BottomTabMedicationIcon from '@assets/icons/bottom-tab/medication.svg';
 import BottomTabScheduleIcon from '@assets/icons/bottom-tab/schedule.svg';
 import BottomTabProfileIcon from '@assets/icons/bottom-tab/profile.svg';
 
@@ -26,7 +25,6 @@ export const icons = {
 
   BottomTabTodayIcon,
   BottomTabCalendarIcon,
-  BottomTabMedicationIcon,
   BottomTabScheduleIcon,
   BottomTabProfileIcon,
 };
