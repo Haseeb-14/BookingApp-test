@@ -31,7 +31,7 @@
     </scenes>
     <resources>
         <namedColor name="BootSplashBackground-e4640a">
-            <color red="0.192156862745098" green="0.466666666666667" blue="0.854901960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.07058823529411765" green="0.7490196078431373" blue="0.4" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
